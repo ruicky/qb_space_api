@@ -5,7 +5,13 @@ import { TorrentsModule } from './torrents/torrents.module';
 import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [TorrentsModule, ConfigModule.forRoot({ isGlobal: true })],
+  imports: [
+    TorrentsModule,
+    ConfigModule.forRoot({
+      isGlobal: true,
+      envFilePath: ['.env.local', '.env'],
+    }),
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
