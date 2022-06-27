@@ -1,9 +1,11 @@
 import { Injectable } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { ConfigService } from '@nestjs/config';
 import { Logger } from '@nestjs/common';
 import * as Api from 'qbittorrent-api-v2';
 import { TorrrentInterface } from './interface/torrent.interface';
 
+@ApiTags('torrents')
 @Injectable()
 export class TorrentsService {
   constructor(private configService: ConfigService) {}
